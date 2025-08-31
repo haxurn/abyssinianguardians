@@ -1,16 +1,17 @@
 "use client"
+
 import { motion } from "framer-motion"
-import { Shield, BarChart3, Users, Zap, Globe, Award, ArrowRight, Play, Check, Star, Menu, X } from "lucide-react"
-import { useState } from "react"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { BackgroundBeams } from "@/components/ui/background-beams"
-import GlobeDemo from "@/components/ui/globe-demo"
+import { Shield, BarChart3, Users, Zap, Globe, Award, ArrowRight, CheckCircle, Play, Menu, X } from "lucide-react"
 import { LANDING_PAGE_CONTENT } from "@/constants/landing-page"
+import { BackgroundBeams } from "@/components/ui/background-beams"
+import SimpleGlobe from "@/components/ui/simple-globe"
+import AnimatedTestimonialsDemo from "@/components/ui/animated-testimonials-demo"
+import { ThemeToggle } from "@/components/theme-toggle"
+import Link from "next/link"
+import { useState } from "react"
 
 const iconMap = {
   Shield,
@@ -25,43 +26,33 @@ export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20 relative overflow-hidden">
-      {/* Enhanced Animated Background */}
-      <BackgroundBeams className="opacity-60" />
-
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-2"
-            >
-              <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
+          <div className="flex justify-between items-center h-16">
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center mr-2">
+                <Shield className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-foreground">CyberGuard</span>
+              <span className="text-xl font-bold">CyberGuard</span>
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
                 Features
-              </Link>
-              <Link href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+              </a>
+              <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
-              </Link>
-              <Link href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
+              </a>
+              <a href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
                 Testimonials
-              </Link>
-              <Link href="/auth/signin" className="text-muted-foreground hover:text-foreground transition-colors">
-                Sign In
-              </Link>
-
-              {/* Theme Toggle */}
+              </a>
               <ThemeToggle />
-
+              <Link href="/auth/signin">
+                <Button variant="ghost">Sign In</Button>
+              </Link>
               <Link href="/auth/signup">
                 <Button className="bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white">
                   Get Started
@@ -74,112 +65,94 @@ export default function LandingPage() {
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-        </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-md border-t border-border"
-          >
-            <div className="px-4 py-4 space-y-4">
-              <Link href="#features" className="block text-muted-foreground hover:text-foreground transition-colors">
-                Features
-              </Link>
-              <Link href="#pricing" className="block text-muted-foreground hover:text-foreground transition-colors">
-                Pricing
-              </Link>
-              <Link
-                href="#testimonials"
-                className="block text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Testimonials
-              </Link>
-              <Link href="/auth/signin" className="block text-muted-foreground hover:text-foreground transition-colors">
-                Sign In
-              </Link>
-              <div className="flex items-center gap-2">
-                <ThemeToggle />
-                <span className="text-sm text-muted-foreground">Toggle theme</span>
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="md:hidden bg-background/95 backdrop-blur-md border-t border-border"
+            >
+              <div className="px-4 py-4 space-y-4">
+                <a href="#features" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Features
+                </a>
+                <a href="#pricing" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Pricing
+                </a>
+                <a href="#testimonials" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Testimonials
+                </a>
+                <div className="flex items-center gap-2">
+                  <ThemeToggle />
+                  <span className="text-sm text-muted-foreground">Toggle theme</span>
+                </div>
+                <Link href="/auth/signin" className="block">
+                  <Button variant="ghost" className="w-full justify-start">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link href="/auth/signup" className="block">
+                  <Button className="w-full bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
-              <Link href="/auth/signup" className="block">
-                <Button className="w-full bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white">
-                  Get Started
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        )}
+            </motion.div>
+          )}
+        </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <Badge className="mb-4 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20">
-                🚀 New: AI-Powered Threat Detection
-              </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted-foreground mb-6">
-                {LANDING_PAGE_CONTENT.hero.title}
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                {LANDING_PAGE_CONTENT.hero.subtitle}
-              </p>
-              <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-                {LANDING_PAGE_CONTENT.hero.description}
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
+      {/* Hero Section with Background Beams */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <BackgroundBeams className="absolute inset-0 opacity-60" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <Badge className="mb-4 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20">
+              🚀 Next-Generation Cybersecurity Platform
+            </Badge>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground/80 to-foreground/60 bg-clip-text text-transparent">
+              {LANDING_PAGE_CONTENT.hero.title}
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto">
+              {LANDING_PAGE_CONTENT.hero.subtitle}
+            </p>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              {LANDING_PAGE_CONTENT.hero.description}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/auth/signup">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white text-lg px-8 py-4 relative z-20"
+                  className="text-lg px-8 py-6 bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white relative z-20"
                 >
                   {LANDING_PAGE_CONTENT.hero.ctaText}
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-border text-foreground hover:bg-accent text-lg px-8 py-4 bg-background/50 backdrop-blur-sm relative z-20"
+                className="text-lg px-8 py-6 bg-background/50 backdrop-blur-sm border-border relative z-20"
               >
-                <Play className="mr-2 w-5 h-5" />
+                <Play className="mr-2 h-5 w-5" />
                 {LANDING_PAGE_CONTENT.hero.secondaryCtaText}
               </Button>
-            </motion.div>
-          </div>
-
-          {/* Globe Visualization */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-20 relative"
-          >
-            <GlobeDemo />
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 bg-muted/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {LANDING_PAGE_CONTENT.stats.map((stat, index) => (
               <motion.div
-                key={stat.label}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
                 <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">{stat.value}</div>
@@ -190,32 +163,41 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Globe Section */}
+      <section className="py-20">
+        <SimpleGlobe />
+      </section>
+
       {/* Features Section */}
-      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Powerful Security Features</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive cybersecurity tools designed to protect your organization from evolving threats
+      <section id="features" className="py-20 bg-muted/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Advanced Security Features</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive cybersecurity solutions designed to protect your organization from evolving threats.
             </p>
           </motion.div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {LANDING_PAGE_CONTENT.features.map((feature, index) => {
-              const IconComponent = iconMap[feature.icon as keyof typeof iconMap]
+              const Icon = iconMap[feature.icon as keyof typeof iconMap]
               return (
                 <motion.div
-                  key={feature.title}
+                  key={index}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="bg-card/50 border-border backdrop-blur-sm hover:bg-card/80 transition-all duration-300 h-full">
+                  <Card className="h-full hover:shadow-lg transition-shadow bg-card/50 backdrop-blur-sm border-border">
                     <CardContent className="p-6">
                       <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center mb-4">
-                        <IconComponent className="w-6 h-6 text-white" />
+                        <Icon className="h-6 w-6 text-white" />
                       </div>
-                      <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
+                      <h3 className="text-xl font-semibold mb-2 text-foreground">{feature.title}</h3>
                       <p className="text-muted-foreground">{feature.description}</p>
                     </CardContent>
                   </Card>
@@ -226,104 +208,71 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Trusted by Security Leaders</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              See what industry experts are saying about CyberGuard
+      {/* Animated Testimonials Section */}
+      <section id="testimonials" className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Trusted by Security Leaders</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              See what cybersecurity professionals are saying about our platform.
             </p>
           </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {LANDING_PAGE_CONTENT.testimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="bg-card/50 border-border backdrop-blur-sm h-full">
-                  <CardContent className="p-6">
-                    <div className="flex mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-muted-foreground mb-6">{`"${testimonial.content}"`}</p>
-                    <div className="flex items-center gap-3">
-                      <Avatar>
-                        <AvatarImage src={testimonial.avatar || "/placeholder.svg"} />
-                        <AvatarFallback>
-                          {testimonial.name
-                            .split(" ")
-                            .map((n) => n[0])
-                            .join("")}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <div className="font-semibold text-foreground">{testimonial.name}</div>
-                        <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+          <AnimatedTestimonialsDemo />
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Simple, Transparent Pricing</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Choose the perfect plan for your organization's security needs
+      <section id="pricing" className="py-20 bg-muted/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Choose the perfect plan for your organization's security needs.
             </p>
           </motion.div>
-
           <div className="grid md:grid-cols-3 gap-8">
             {LANDING_PAGE_CONTENT.pricing.map((plan, index) => (
               <motion.div
-                key={plan.name}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card
-                  className={`relative h-full ${
-                    plan.popular
-                      ? "bg-gradient-to-b from-cyan-500/10 to-teal-600/10 border-cyan-500/30"
-                      : "bg-card/50 border-border"
-                  } backdrop-blur-sm`}
+                  className={`h-full relative bg-card/50 backdrop-blur-sm border-border ${plan.popular ? "border-primary shadow-lg" : ""}`}
                 >
                   {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <Badge className="bg-gradient-to-r from-cyan-500 to-teal-600 text-white">Most Popular</Badge>
-                    </div>
+                    <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-teal-600 text-white">
+                      Most Popular
+                    </Badge>
                   )}
-                  <CardContent className="p-8">
-                    <div className="text-center mb-8">
-                      <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
-                      <div className="mb-4">
-                        <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                        <span className="text-muted-foreground ml-2">{plan.period}</span>
+                  <CardContent className="p-6">
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl font-bold mb-2 text-foreground">{plan.name}</h3>
+                      <div className="text-4xl font-bold mb-2 text-foreground">
+                        {plan.price}
+                        <span className="text-lg text-muted-foreground font-normal">{plan.period}</span>
                       </div>
                       <p className="text-muted-foreground">{plan.description}</p>
                     </div>
-
-                    <ul className="space-y-4 mb-8">
+                    <ul className="space-y-3 mb-6">
                       {plan.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-3">
-                          <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                          <span className="text-muted-foreground">{feature}</span>
+                        <li key={featureIndex} className="flex items-center">
+                          <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                          <span className="text-sm text-muted-foreground">{feature}</span>
                         </li>
                       ))}
                     </ul>
-
                     <Button
                       className={`w-full ${
                         plan.popular
@@ -342,43 +291,45 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Ready to Secure Your Future?</h2>
-            <p className="text-xl text-muted-foreground mb-10">
-              Join thousands of organizations protecting their digital assets with CyberGuard
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Ready to Secure Your Future?</h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Join thousands of organizations that trust CyberGuard to protect their digital assets.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/auth/signup">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white text-lg px-8 py-4 relative z-20"
+                  className="text-lg px-8 py-6 bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white"
                 >
                   Start Free Trial
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-border text-foreground hover:bg-accent text-lg px-8 py-4 bg-background/50 backdrop-blur-sm relative z-20"
-              >
-                Schedule Demo
-              </Button>
+              <Link href="/dashboard">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 py-6 bg-background/50 backdrop-blur-sm border-border"
+                >
+                  View Demo Dashboard
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-12 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
+      <footer className="bg-muted/50 py-12 border-t border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-white" />
+              <div className="flex items-center mb-4">
+                <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center mr-2">
+                  <Shield className="h-5 w-5 text-white" />
                 </div>
                 <span className="text-xl font-bold text-foreground">CyberGuard</span>
               </div>
@@ -388,24 +339,24 @@ export default function LandingPage() {
               <h4 className="font-semibold text-foreground mb-4">Product</h4>
               <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     Features
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     Pricing
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     Security
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     Integrations
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -413,24 +364,24 @@ export default function LandingPage() {
               <h4 className="font-semibold text-foreground mb-4">Company</h4>
               <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     About
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     Blog
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     Careers
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     Contact
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -438,24 +389,24 @@ export default function LandingPage() {
               <h4 className="font-semibold text-foreground mb-4">Support</h4>
               <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     Documentation
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     Help Center
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     Status
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-foreground transition-colors">
+                  <a href="#" className="hover:text-foreground transition-colors">
                     API
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
