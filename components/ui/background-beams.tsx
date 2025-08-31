@@ -1,6 +1,6 @@
 "use client"
 import React from "react"
-import { motion } from "motion/react"
+import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 export const BackgroundBeams = React.memo(({ className }: { className?: string }) => {
@@ -63,6 +63,34 @@ export const BackgroundBeams = React.memo(({ className }: { className?: string }
         className,
       )}
     >
+      <div
+        className={cn(
+          "absolute inset-0 h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900",
+          className,
+        )}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-transparent to-teal-500/20" />
+        <div className="absolute inset-0">
+          {/* Animated beams */}
+          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-cyan-500/50 to-transparent animate-pulse" />
+          <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-teal-500/50 to-transparent animate-pulse delay-1000" />
+          <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-cyan-500/50 to-transparent animate-pulse delay-2000" />
+
+          {/* Horizontal beams */}
+          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent animate-pulse delay-500" />
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-teal-500/30 to-transparent animate-pulse delay-1500" />
+          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent animate-pulse delay-2500" />
+
+          {/* Floating orbs */}
+          <div className="absolute top-1/3 left-1/3 w-2 h-2 bg-cyan-500/60 rounded-full animate-ping" />
+          <div className="absolute top-2/3 left-2/3 w-2 h-2 bg-teal-500/60 rounded-full animate-ping delay-1000" />
+          <div className="absolute top-1/2 left-1/6 w-1 h-1 bg-cyan-400/80 rounded-full animate-ping delay-2000" />
+          <div className="absolute top-1/4 left-5/6 w-1 h-1 bg-teal-400/80 rounded-full animate-ping delay-3000" />
+        </div>
+      </div>
+
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
       <svg
         className="pointer-events-none absolute z-0 h-full w-full"
         width="100%"

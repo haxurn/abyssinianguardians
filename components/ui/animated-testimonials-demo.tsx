@@ -4,38 +4,38 @@ export default function AnimatedTestimonialsDemo() {
   const testimonials = [
     {
       quote:
-        "CyberGuard's AI-powered threat detection has revolutionized our security operations. We've seen a 95% reduction in false positives and our response time has improved dramatically.",
+        "CyberGuard has transformed our security operations. The real-time threat detection and automated response capabilities have reduced our incident response time by 75%. It's like having a team of security experts working 24/7.",
       name: "Sarah Chen",
-      designation: "CISO at TechFlow Industries",
-      src: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      designation: "CISO at TechCorp",
+      src: "/professional-woman-cybersecurity-executive.png",
     },
     {
       quote:
-        "The implementation was seamless and the real-time threat intelligence has given us unprecedented visibility into our security posture. Our compliance audits are now effortless.",
+        "The gamification aspect has completely changed how our team approaches cybersecurity training. Our security awareness scores have improved by 60% since implementing CyberGuard's platform.",
       name: "Michael Rodriguez",
-      designation: "VP of Cybersecurity at InnovateSphere",
-      src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      designation: "Security Director at FinanceFirst",
+      src: "/professional-man-security-director.png",
     },
     {
       quote:
-        "CyberGuard's gamified approach has transformed how our security team operates. The leaderboards and challenges have increased engagement by 300% while improving our overall security metrics.",
-      name: "Emily Watson",
-      designation: "Security Operations Director at CloudScale",
-      src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "What impressed me most is the comprehensive analytics and reporting. We can now demonstrate ROI on our security investments and make data-driven decisions. The executive dashboards are particularly valuable.",
+      name: "Dr. Emily Watson",
+      designation: "Chief Information Officer at HealthTech Solutions",
+      src: "/professional-woman-cio-healthcare.png",
     },
     {
       quote:
-        "The advanced analytics and predictive capabilities have helped us stay ahead of emerging threats. CyberGuard's platform scales beautifully with our growing enterprise needs.",
-      name: "James Kim",
-      designation: "Chief Security Officer at DataPro",
-      src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "The AI-powered threat intelligence has been a game-changer. We're now proactively identifying and mitigating threats before they impact our operations. The platform's predictive capabilities are outstanding.",
+      name: "James Thompson",
+      designation: "VP of Cybersecurity at GlobalManufacturing",
+      src: "/professional-man-vp-cybersecurity.png",
     },
     {
       quote:
-        "Outstanding support and robust features. The automated incident response has reduced our mean time to resolution by 80%. It's rare to find a security platform that delivers on all its promises.",
-      name: "Lisa Thompson",
-      designation: "Head of Information Security at FutureNet",
-      src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "CyberGuard's collaborative features have improved our team coordination significantly. The real-time communication and incident management tools have streamlined our security operations.",
+      name: "Lisa Park",
+      designation: "Security Operations Manager at RetailGiant",
+      src: "/professional-woman-security-operations-manager.png",
     },
   ]
 

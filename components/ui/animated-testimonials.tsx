@@ -1,7 +1,8 @@
 "use client"
 
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react"
-import { motion, AnimatePresence } from "motion/react"
+import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 import { useEffect, useState } from "react"
 
 type Testimonial = {
@@ -44,8 +45,8 @@ export const AnimatedTestimonials = ({
   }
 
   return (
-    <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
-      <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
+    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
           <div className="relative h-80 w-full">
             <AnimatePresence>
@@ -63,8 +64,7 @@ export const AnimatedTestimonials = ({
                     scale: isActive(index) ? 1 : 0.95,
                     z: isActive(index) ? 0 : -100,
                     rotate: isActive(index) ? 0 : randomRotateY(),
-                    zIndex: isActive(index) ? 40 : testimonials.length + 2 - index,
-                    y: isActive(index) ? [0, -80, 0] : 0,
+                    zIndex: isActive(index) ? 999 : testimonials.length + 2 - index,
                   }}
                   exit={{
                     opacity: 0,
@@ -78,7 +78,7 @@ export const AnimatedTestimonials = ({
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
-                  <img
+                  <Image
                     src={testimonial.src || "/placeholder.svg"}
                     alt={testimonial.name}
                     width={500}
@@ -91,7 +91,7 @@ export const AnimatedTestimonials = ({
             </AnimatePresence>
           </div>
         </div>
-        <div className="flex flex-col justify-between py-4">
+        <div className="flex justify-between flex-col py-4">
           <motion.div
             key={active}
             initial={{
@@ -111,9 +111,20 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold text-foreground">{testimonials[active].name}</h3>
-            <p className="text-sm text-muted-foreground">{testimonials[active].designation}</p>
-            <motion.p className="mt-8 text-lg text-muted-foreground">
+            <div className="flex gap-1 py-4">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActive(index)}
+                  className={`h-3 w-3 rounded-full ${
+                    index === active ? "bg-primary" : "bg-muted"
+                  } transition-colors duration-200`}
+                />
+              ))}
+            </div>
+            <h3 className="text-2xl font-bold dark:text-white text-black">{testimonials[active].name}</h3>
+            <p className="text-sm text-gray-500 dark:text-neutral-500">{testimonials[active].designation}</p>
+            <motion.p className="text-lg text-gray-500 mt-8 dark:text-neutral-300">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -142,15 +153,15 @@ export const AnimatedTestimonials = ({
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-muted hover:bg-muted/80 transition-colors"
+              className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
             >
-              <IconArrowLeft className="h-5 w-5 text-foreground transition-transform duration-300 group-hover/button:rotate-12" />
+              <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-muted hover:bg-muted/80 transition-colors"
+              className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
             >
-              <IconArrowRight className="h-5 w-5 text-foreground transition-transform duration-300 group-hover/button:-rotate-12" />
+              <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>
           </div>
         </div>

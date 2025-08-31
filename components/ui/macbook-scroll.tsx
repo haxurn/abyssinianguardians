@@ -1,7 +1,7 @@
 "use client"
 import type React from "react"
 import { useEffect, useRef, useState } from "react"
-import { type MotionValue, motion, useScroll, useTransform } from "motion/react"
+import { type MotionValue, motion, useScroll, useTransform } from "framer-motion"
 import { cn } from "@/lib/utils"
 import {
   IconBrightnessDown,
