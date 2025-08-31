@@ -1,5 +1,6 @@
 "use client"
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react"
+
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useState } from "react"
@@ -111,18 +112,14 @@ export const AnimatedTestimonials = ({
             }}
           >
             <div className="flex gap-1 py-4">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <svg
+              {testimonials.map((_, index) => (
+                <button
                   key={index}
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="h-4 w-4 text-yellow-500"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
+                  onClick={() => setActive(index)}
+                  className={`h-3 w-3 rounded-full ${
+                    index === active ? "bg-primary" : "bg-muted"
+                  } transition-colors duration-200`}
+                />
               ))}
             </div>
             <h3 className="text-2xl font-bold dark:text-white text-black">{testimonials[active].name}</h3>
@@ -158,13 +155,13 @@ export const AnimatedTestimonials = ({
               onClick={handlePrev}
               className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
             >
-              <IconChevronLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
+              <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
             </button>
             <button
               onClick={handleNext}
               className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
             >
-              <IconChevronRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
+              <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>
           </div>
         </div>
