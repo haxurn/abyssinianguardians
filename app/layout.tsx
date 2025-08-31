@@ -7,8 +7,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "CyberGuard Dashboard",
-  description: "Professional cybersecurity team dashboard for vulnerability management",
+  title: "CyberGuard - Advanced Cybersecurity Dashboard",
+  description: "Comprehensive cybersecurity solutions for the modern enterprise",
     generator: 'v0.app'
 }
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
           {children}
         </ThemeProvider>
       </body>
