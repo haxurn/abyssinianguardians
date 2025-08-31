@@ -4,26 +4,25 @@ import { useEffect, useRef, useState } from "react"
 import { type MotionValue, motion, useScroll, useTransform } from "framer-motion"
 import { cn } from "@/lib/utils"
 import {
-  IconBrightnessDown,
-  IconBrightnessUp,
-  IconCaretRightFilled,
-  IconCaretUpFilled,
-  IconChevronUp,
-  IconMicrophone,
-  IconMoon,
-  IconPlayerSkipForward,
-  IconPlayerTrackNext,
-  IconPlayerTrackPrev,
-  IconTable,
-  IconVolume,
-  IconVolume2,
-  IconVolume3,
-} from "@tabler/icons-react"
-import { IconSearch } from "@tabler/icons-react"
-import { IconWorld } from "@tabler/icons-react"
-import { IconCommand } from "@tabler/icons-react"
-import { IconCaretLeftFilled } from "@tabler/icons-react"
-import { IconCaretDownFilled } from "@tabler/icons-react"
+  ChevronUp,
+  Mic,
+  Moon,
+  SkipForward,
+  SkipBack,
+  Play,
+  Volume2,
+  VolumeX,
+  Volume1,
+  Search,
+  Grid3X3,
+  Sun,
+  SunDim,
+  Globe,
+  Command,
+  ChevronLeft,
+  ChevronRight,
+  ChevronDown,
+} from "lucide-react"
 
 export const MacbookScroll = ({
   src,
@@ -135,7 +134,7 @@ export const Lid = ({
           className="absolute inset-0 flex items-center justify-center rounded-lg bg-[#010101]"
         >
           <span className="text-white">
-            <CyberGuardLogo />
+            <AceternityLogo />
           </span>
         </div>
       </div>
@@ -153,7 +152,7 @@ export const Lid = ({
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
         <img
           src={(src as string) || "/placeholder.svg"}
-          alt="CyberGuard Dashboard"
+          alt="aceternity logo"
           className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
         />
       </motion.div>
@@ -181,51 +180,51 @@ export const Keypad = () => {
           esc
         </KBtn>
         <KBtn>
-          <IconBrightnessDown className="h-[6px] w-[6px]" />
+          <SunDim className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F1</span>
         </KBtn>
         <KBtn>
-          <IconBrightnessUp className="h-[6px] w-[6px]" />
+          <Sun className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F2</span>
         </KBtn>
         <KBtn>
-          <IconTable className="h-[6px] w-[6px]" />
+          <Grid3X3 className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F3</span>
         </KBtn>
         <KBtn>
-          <IconSearch className="h-[6px] w-[6px]" />
+          <Search className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F4</span>
         </KBtn>
         <KBtn>
-          <IconMicrophone className="h-[6px] w-[6px]" />
+          <Mic className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F5</span>
         </KBtn>
         <KBtn>
-          <IconMoon className="h-[6px] w-[6px]" />
+          <Moon className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F6</span>
         </KBtn>
         <KBtn>
-          <IconPlayerTrackPrev className="h-[6px] w-[6px]" />
+          <SkipBack className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F7</span>
         </KBtn>
         <KBtn>
-          <IconPlayerSkipForward className="h-[6px] w-[6px]" />
+          <Play className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F8</span>
         </KBtn>
         <KBtn>
-          <IconPlayerTrackNext className="h-[6px] w-[6px]" />
+          <SkipForward className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F9</span>
         </KBtn>
         <KBtn>
-          <IconVolume3 className="h-[6px] w-[6px]" />
+          <VolumeX className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F10</span>
         </KBtn>
         <KBtn>
-          <IconVolume2 className="h-[6px] w-[6px]" />
+          <Volume1 className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F11</span>
         </KBtn>
         <KBtn>
-          <IconVolume className="h-[6px] w-[6px]" />
+          <Volume2 className="h-[6px] w-[6px]" />
           <span className="mt-1 inline-block">F12</span>
         </KBtn>
         <KBtn>
@@ -438,12 +437,12 @@ export const Keypad = () => {
             <span className="block">fn</span>
           </div>
           <div className="flex w-full justify-start pl-1">
-            <IconWorld className="h-[6px] w-[6px]" />
+            <Globe className="h-[6px] w-[6px]" />
           </div>
         </KBtn>
         <KBtn className="" childrenClassName="h-full justify-between py-[4px]">
           <div className="flex w-full justify-end pr-1">
-            <IconChevronUp className="h-[6px] w-[6px]" />
+            <ChevronUp className="h-[6px] w-[6px]" />
           </div>
           <div className="flex w-full justify-start pl-1">
             <span className="block">control</span>
@@ -459,7 +458,7 @@ export const Keypad = () => {
         </KBtn>
         <KBtn className="w-8" childrenClassName="h-full justify-between py-[4px]">
           <div className="flex w-full justify-end pr-1">
-            <IconCommand className="h-[6px] w-[6px]" />
+            <Command className="h-[6px] w-[6px]" />
           </div>
           <div className="flex w-full justify-start pl-1">
             <span className="block">command</span>
@@ -468,7 +467,7 @@ export const Keypad = () => {
         <KBtn className="w-[8.2rem]"></KBtn>
         <KBtn className="w-8" childrenClassName="h-full justify-between py-[4px]">
           <div className="flex w-full justify-start pl-1">
-            <IconCommand className="h-[6px] w-[6px]" />
+            <Command className="h-[6px] w-[6px]" />
           </div>
           <div className="flex w-full justify-start pl-1">
             <span className="block">command</span>
@@ -484,17 +483,17 @@ export const Keypad = () => {
         </KBtn>
         <div className="mt-[2px] flex h-6 w-[4.9rem] flex-col items-center justify-end rounded-[4px] p-[0.5px]">
           <KBtn className="h-3 w-6">
-            <IconCaretUpFilled className="h-[6px] w-[6px]" />
+            <ChevronUp className="h-[6px] w-[6px]" />
           </KBtn>
           <div className="flex">
             <KBtn className="h-3 w-6">
-              <IconCaretLeftFilled className="h-[6px] w-[6px]" />
+              <ChevronLeft className="h-[6px] w-[6px]" />
             </KBtn>
             <KBtn className="h-3 w-6">
-              <IconCaretDownFilled className="h-[6px] w-[6px]" />
+              <ChevronDown className="h-[6px] w-[6px]" />
             </KBtn>
             <KBtn className="h-3 w-6">
-              <IconCaretRightFilled className="h-[6px] w-[6px]" />
+              <ChevronRight className="h-[6px] w-[6px]" />
             </KBtn>
           </div>
         </div>
@@ -570,7 +569,7 @@ export const OptionKey = ({ className }: { className: string }) => {
   )
 }
 
-const CyberGuardLogo = () => {
+const AceternityLogo = () => {
   return (
     <svg
       width="66"
