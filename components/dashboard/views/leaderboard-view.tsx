@@ -123,7 +123,7 @@ export function LeaderboardView() {
         <div className="flex items-center gap-2">
           <Badge variant="outline" className="bg-yellow-500/10 text-yellow-500 border-yellow-500/20">
             <Trophy className="h-3 w-3 mr-1" />
-            Season 2024
+            Season 2025
           </Badge>
         </div>
       </motion.div>

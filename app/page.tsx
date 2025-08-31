@@ -12,7 +12,7 @@ const vulnerabilityReports = [
     score: 95,
     status: "Open",
     assignedTo: "Alice Johnson",
-    date: "2024-01-15",
+    date: "2025-01-15",
     description: "Critical SQL injection vulnerability found in the main login form",
   },
   {
@@ -22,7 +22,7 @@ const vulnerabilityReports = [
     score: 78,
     status: "In Progress",
     assignedTo: "Bob Smith",
-    date: "2024-01-14",
+    date: "2025-01-14",
     description: "Cross-site scripting vulnerability in user comments",
   },
   {
@@ -32,7 +32,7 @@ const vulnerabilityReports = [
     score: 45,
     status: "Closed",
     assignedTo: "Carol Davis",
-    date: "2024-01-13",
+    date: "2025-01-13",
     description: "Password policy allows weak passwords",
   },
   {
@@ -42,7 +42,7 @@ const vulnerabilityReports = [
     score: 25,
     status: "Open",
     assignedTo: "David Wilson",
-    date: "2024-01-12",
+    date: "2025-01-12",
     description: "HTTP traffic not properly redirected to HTTPS",
   },
   {
@@ -52,7 +52,7 @@ const vulnerabilityReports = [
     score: 82,
     status: "Open",
     assignedTo: "Eve Brown",
-    date: "2024-01-11",
+    date: "2025-01-11",
     description: "Cross-site request forgery protection missing",
   },
 ]
