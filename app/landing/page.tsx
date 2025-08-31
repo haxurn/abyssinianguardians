@@ -9,6 +9,7 @@ import { LANDING_PAGE_CONTENT } from "@/constants/landing-page"
 import { BackgroundBeams } from "@/components/ui/background-beams"
 import SimpleGlobe from "@/components/ui/simple-globe"
 import AnimatedTestimonialsDemo from "@/components/ui/animated-testimonials-demo"
+import MacbookScrollDemo from "@/components/ui/macbook-scroll-demo"
 import { ThemeToggle } from "@/components/theme-toggle"
 import Link from "next/link"
 import { useState } from "react"
@@ -43,6 +44,9 @@ export default function LandingPage() {
               <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
                 Features
               </a>
+              <a href="#demo" className="text-muted-foreground hover:text-foreground transition-colors">
+                Demo
+              </a>
               <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
               </a>
@@ -76,6 +80,9 @@ export default function LandingPage() {
               <div className="px-4 py-4 space-y-4">
                 <a href="#features" className="block text-muted-foreground hover:text-foreground transition-colors">
                   Features
+                </a>
+                <a href="#demo" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Demo
                 </a>
                 <a href="#pricing" className="block text-muted-foreground hover:text-foreground transition-colors">
                   Pricing
@@ -168,8 +175,13 @@ export default function LandingPage() {
         <SimpleGlobe />
       </section>
 
+      {/* MacBook Demo Section */}
+      <section id="demo" className="py-20 bg-muted/50">
+        <MacbookScrollDemo />
+      </section>
+
       {/* Features Section */}
-      <section id="features" className="py-20 bg-muted/50">
+      <section id="features" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -209,7 +221,7 @@ export default function LandingPage() {
       </section>
 
       {/* Animated Testimonials Section */}
-      <section id="testimonials" className="py-20">
+      <section id="testimonials" className="py-20 bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -227,7 +239,7 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-muted/50">
+      <section id="pricing" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -291,7 +303,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-20 bg-muted/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Ready to Secure Your Future?</h2>
@@ -323,7 +335,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-muted/50 py-12 border-t border-border">
+      <footer className="py-12 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>

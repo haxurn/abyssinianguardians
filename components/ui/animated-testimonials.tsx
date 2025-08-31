@@ -1,7 +1,7 @@
 "use client"
 
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react"
+import { motion, AnimatePresence } from "motion/react"
 import { useEffect, useState } from "react"
 
 type Testimonial = {
@@ -84,7 +84,7 @@ export const AnimatedTestimonials = ({
                     width={500}
                     height={500}
                     draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center border-2 border-border shadow-lg"
+                    className="h-full w-full rounded-3xl object-cover object-center"
                   />
                 </motion.div>
               ))}
@@ -142,15 +142,15 @@ export const AnimatedTestimonials = ({
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-muted hover:bg-accent transition-colors duration-200"
+              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-muted hover:bg-muted/80 transition-colors"
             >
-              <ChevronLeft className="h-5 w-5 text-foreground transition-transform duration-300 group-hover/button:rotate-12" />
+              <IconArrowLeft className="h-5 w-5 text-foreground transition-transform duration-300 group-hover/button:rotate-12" />
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-muted hover:bg-accent transition-colors duration-200"
+              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-muted hover:bg-muted/80 transition-colors"
             >
-              <ChevronRight className="h-5 w-5 text-foreground transition-transform duration-300 group-hover/button:-rotate-12" />
+              <IconArrowRight className="h-5 w-5 text-foreground transition-transform duration-300 group-hover/button:-rotate-12" />
             </button>
           </div>
         </div>
